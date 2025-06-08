@@ -47,9 +47,9 @@ db_settings = scene_db.get_settings()
 
 
 manager = ConnectionManager()
-# tts = Kokoro()
-# from audio.speech_to_text.whisper import Whisper
-# whisper = Whisper()
+tts = Kokoro()
+from audio.speech_to_text.whisper import Whisper
+whisper = Whisper()
 @dataclass
 class RequestContext:
     is_disconnected: bool = False
