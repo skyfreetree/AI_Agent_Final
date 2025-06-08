@@ -1,0 +1,27 @@
+<!-- app_mode_select.html -->
+<!-- 模式选择 -->
+<label for="app-mode-select" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mt-4">选择模式：</label>
+<select id="app-mode-select" class="mt-1 block w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100">
+  <option value="task_chat">任务模式</option>
+  <option value="wrong">错题集</option>
+  <option value="scene_chat">情景对话</option>
+  <option value="study_summary">学习情况展示</option>
+  <option value="word_learning">单词本</option> /gkq
+</select>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var modeSelect = document.getElementById('app-mode-select');
+  if (modeSelect) {
+    modeSelect.addEventListener('change', function() {
+      if (this.value === 'word_learning') {
+        window.location.href = '/word_learning/';
+      } else {
+        switchMode(this.value);
+      }
+    });
+  }
+});
+</script>
+
+
+

@@ -1,0 +1,170 @@
+<div id="settings-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+    <div class="bg-white dark:bg-gray-800 rounded-lg p-6 w-[600px] max-w-[90%] max-h-[80vh] overflow-y-auto" onclick="event.stopPropagation()">
+        <div class="flex justify-between items-center mb-6">
+            <h3 class="text-xl font-semibold">设置</h3>
+            <button onclick="closeSettingsModal()" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+
+        <!-- 设置模块导航 -->
+        <div class="flex space-x-4 mb-6 border-b border-gray-200 dark:border-gray-700">
+            <button onclick="switchSettingsTab('appearance')" class="settings-tab active px-4 py-2 text-sm font-medium text-blue-600 dark:text-blue-400 border-b-2 border-blue-600 dark:border-blue-400">
+                皮肤设置
+            </button>
+            <button onclick="switchSettingsTab('model')" class="settings-tab px-4 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200">
+                模型设置
+            </button>
+        </div>
+
+        <!-- 设置内容区域 -->
+        <div class="settings-content">
+            <!-- 皮肤设置 -->
+            <div id="appearance-settings" class="settings-panel">
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">主题模式</label>
+                        <button onclick="toggleDarkMode()" 
+                            class="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-600 
+                                hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 
+                                focus:ring-gray-200 dark:focus:ring-gray-700 transition-colors duration-200
+                                flex items-center justify-between">
+                            <span id="theme-text" class="text-sm font-medium text-gray-700 dark:text-gray-300">Dark Mode</span>
+                            <svg id="theme-toggle-icon" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path class="hidden dark:block" d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                                <path class="block dark:hidden" fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">字体大小</label>
+                        <input type="range" min="12" max="20" value="14" class="w-full" onchange="updateFontSize(this.value)">
+                        <div class="flex justify-between text-xs text-gray-500">
+                            <span>小</span>
+                            <span>大</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 模型设置 -->
+            <div id="model-settings" class="settings-panel hidden">
+                <div class="space-y-4">
+                    <!-- 配置选择器 -->
+                    <div class="mb-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <label class="block text-sm font-medium">当前配置</label>
+                            <button onclick="createNewSettingsConfig()" 
+                                    class="p-1 text-gray-500 hover:text-blue-600 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700"
+                                    title="创建新配置">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <select id="settings-selector" 
+                                class="w-full p-2 text-sm border rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100">
+                        </select>
+                    </div>
+
+                    <!-- 配置名称 -->
+                    <div>
+                        <label class="block text-sm font-medium mb-2">配置名称</label>
+                        <input type="text" id="config-name" required
+                            class="w-full p-2 text-sm border rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100"
+                            placeholder="输入配置名称">
+                    </div>
+
+                    <!-- API设置 -->
+                    <div>
+                        <label class="block text-sm font-medium mb-2">API 设置</label>
+                        <div class="space-y-2">
+                            <div>
+                                <label class="block text-xs font-medium mb-1">API Host</label>
+                                <input type="text" id="api-host"
+                                    class="w-full p-2 text-sm border rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-medium mb-1">API Key</label>
+                                <input type="password" id="api-key"
+                                    class="w-full p-2 text-sm border rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 模型参数 -->
+                    <div>
+                        <label class="block text-sm font-medium mb-2">模型参数</label>
+                        <div class="space-y-2">
+                            <div>
+                                <label class="block text-xs font-medium mb-1">模型名称</label>
+                                <input type="text" id="model-name"
+                                    class="w-full p-2 text-sm border rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-medium mb-1">Temperature</label>
+                                <input type="range" id="temperature" min="0" max="2" step="0.1" 
+                                    class="w-full mb-1"
+                                    oninput="document.getElementById('temperature-value').textContent = this.value">
+                                <div class="flex justify-between text-xs text-gray-500">
+                                    <span>精确</span>
+                                    <span id="temperature-value">1.0</span>
+                                    <span>创意</span>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-medium mb-1">Top P</label>
+                                <input type="range" id="top-p" min="0" max="1" step="0.05"
+                                    class="w-full mb-1"
+                                    oninput="document.getElementById('top-p-value').textContent = this.value">
+                                <div class="flex justify-between text-xs text-gray-500">
+                                    <span>保守</span>
+                                    <span id="top-p-value">0.95</span>
+                                    <span>开放</span>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-medium mb-1">Max Tokens</label>
+                                <input type="number" id="max-tokens" min="1"
+                                    class="w-full p-2 text-sm border rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tavily API设置 -->
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Tavily API 设置</label>
+                        <div class="space-y-2">
+                            <div>
+                                <label class="block text-xs font-medium mb-1">API Key</label>
+                                <input type="password" id="tavily-api-key"
+                                    class="w-full p-2 text-sm border rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 保存按钮和警告 -->
+                    <div class="pt-4 mt-4 border-t border-gray-200 dark:border-gray-700">
+                        <div id="settings-warning" class="hidden mb-2 text-xs text-yellow-600 dark:text-yellow-400">
+                            <div class="flex items-center gap-1">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                        d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                                </svg>
+                                <span>您有未保存的更改</span>
+                            </div>
+                        </div>
+                        <button onclick="saveSettings()" 
+                            class="w-full px-4 py-2 bg-gradient-to-r from-blue-500 to-blue-600 
+                                text-white rounded-lg hover:from-blue-600 hover:to-blue-700 
+                                transition-all duration-200 transform hover:scale-[1.02] 
+                                flex items-center justify-center gap-2 shadow-lg hover:shadow-blue-500/50">
+                            保存配置
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

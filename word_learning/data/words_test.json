@@ -1,0 +1,124 @@
+{
+    "words": [
+        {
+            "word": "apple",
+            "phonetic": "/ˈæp.əl/",
+            "meaning": "n. 苹果",
+            "example": "I eat an apple every day."
+        },
+        {
+            "word": "banana",
+            "phonetic": "/bəˈnɑː.nə/",
+            "meaning": "n. 香蕉",
+            "example": "Monkeys like to eat bananas."
+        },
+        {
+            "word": "computer",
+            "phonetic": "/kəmˈpjuː.tər/",
+            "meaning": "n. 计算机",
+            "example": "I use my computer to study English."
+        },
+        {
+            "word": "beautiful",
+            "phonetic": "/ˈbjuː.tɪ.fəl/",
+            "meaning": "adj. 美丽的，漂亮的",
+            "example": "She has a beautiful garden."
+        },
+        {
+            "word": "dictionary",
+            "phonetic": "/ˈdɪk.ʃən.er.i/",
+            "meaning": "n. 字典，词典",
+            "example": "I always keep a dictionary on my desk."
+        },
+        {
+            "word": "elephant",
+            "phonetic": "/ˈel.ɪ.fənt/",
+            "meaning": "n. 大象",
+            "example": "The elephant is the largest land animal."
+        },
+        {
+            "word": "freedom",
+            "phonetic": "/ˈfriː.dəm/",
+            "meaning": "n. 自由",
+            "example": "Everyone deserves freedom of speech."
+        },
+        {
+            "word": "garden",
+            "phonetic": "/ˈɡɑː.dən/",
+            "meaning": "n. 花园",
+            "example": "She spends her weekends working in the garden."
+        },
+        {
+            "word": "happiness",
+            "phonetic": "/ˈhæp.i.nəs/",
+            "meaning": "n. 幸福，快乐",
+            "example": "Money doesn't always bring happiness."
+        },
+        {
+            "word": "important",
+            "phonetic": "/ɪmˈpɔː.tənt/",
+            "meaning": "adj. 重要的",
+            "example": "It's important to get enough sleep."
+        },
+        {
+            "word": "journey",
+            "phonetic": "/ˈdʒɜː.ni/",
+            "meaning": "n. 旅程，旅行",
+            "example": "Life is a journey, not a destination."
+        },
+        {
+            "word": "knowledge",
+            "phonetic": "/ˈnɒl.ɪdʒ/",
+            "meaning": "n. 知识",
+            "example": "Reading increases your knowledge."
+        },
+        {
+            "word": "language",
+            "phonetic": "/ˈlæŋ.ɡwɪdʒ/",
+            "meaning": "n. 语言",
+            "example": "English is a global language."
+        },
+        {
+            "word": "music",
+            "phonetic": "/ˈmjuː.zɪk/",
+            "meaning": "n. 音乐",
+            "example": "She loves listening to classical music."
+        },
+        {
+            "word": "nature",
+            "phonetic": "/ˈneɪ.tʃər/",
+            "meaning": "n. 自然，自然界",
+            "example": "We should protect nature."
+        },
+        {
+            "word": "opportunity",
+            "phonetic": "/ˌɒp.əˈtjuː.nə.ti/",
+            "meaning": "n. 机会",
+            "example": "This is a great opportunity for you."
+        },
+        {
+            "word": "peace",
+            "phonetic": "/piːs/",
+            "meaning": "n. 和平",
+            "example": "We all want to live in peace."
+        },
+        {
+            "word": "question",
+            "phonetic": "/ˈkwes.tʃən/",
+            "meaning": "n. 问题",
+            "example": "Do you have any questions?"
+        },
+        {
+            "word": "rainbow",
+            "phonetic": "/ˈreɪn.bəʊ/",
+            "meaning": "n. 彩虹",
+            "example": "A rainbow appeared after the rain."
+        },
+        {
+            "word": "sunshine",
+            "phonetic": "/ˈsʌn.ʃaɪn/",
+            "meaning": "n. 阳光",
+            "example": "The sunshine makes me feel happy."
+        }
+    ]
+} 

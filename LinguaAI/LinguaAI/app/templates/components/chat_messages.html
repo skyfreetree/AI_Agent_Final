@@ -1,0 +1,13 @@
+<!-- Combined Container for System Prompt and Chat Messages -->
+<div id="chat-messages-wrapper" class="flex-grow bg-white dark:bg-gray-800 rounded-lg overflow-hidden flex flex-col min-h-0 mb-[120px] sm:mb-0">
+    <!-- Chat Messages Section -->
+    <div id="chat-messages" class="flex-grow overflow-y-auto p-2 sm:p-4">
+        <!-- Chat messages will be inserted here -->
+    </div>
+    <!-- Add jump-to-bottom button here, after chat-messages -->
+    <button id="jump-to-bottom" class="jump-to-bottom" onclick="scrollToBottom()">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+        </svg>
+    </button>
+</div>

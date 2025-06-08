@@ -1,0 +1,129 @@
+/* 单词卡片样式 */
+.word-card {
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+    margin-bottom: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.word-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.word-header {
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 15px;
+}
+
+.word-header h2 {
+    margin: 0;
+    margin-right: 10px;
+    color: #2c3e50;
+}
+
+.phonetic {
+    color: #666;
+    font-style: italic;
+}
+
+.word-content {
+    flex: 1 1 auto;
+    color: #444;
+}
+
+.word-content p {
+    margin-bottom: 10px;
+}
+
+/* 单词列表样式 */
+.word-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 15px;
+    padding: 15px 0;
+}
+
+/* 状态标签样式 */
+.word-status {
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+    width: auto;
+}
+
+.word-status .badge {
+    font-size: 0.9em;
+    padding: 5px 10px;
+}
+
+/* 模态框样式 */
+.modal-body {
+    padding: 30px;
+}
+
+.modal-body .word-card {
+    cursor: default;
+}
+
+.modal-body .word-card:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+/* 进度条样式 */
+.progress {
+    height: 8px;
+    margin-top: 5px;
+}
+
+/* 标签页样式 */
+.nav-tabs .nav-link {
+    color: #495057;
+}
+
+.nav-tabs .nav-link.active {
+    color: #007bff;
+    font-weight: 500;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .word-list {
+        grid-template-columns: 1fr;
+    }
+    
+    .word-card {
+        margin-bottom: 10px;
+    }
+}
+
+/* 动画效果 */
+.fade-enter {
+    opacity: 0;
+}
+
+.fade-enter-active {
+    opacity: 1;
+    transition: opacity 300ms ease-in;
+}
+
+.fade-exit {
+    opacity: 1;
+}
+
+.fade-exit-active {
+    opacity: 0;
+    transition: opacity 300ms ease-in;
+} 

@@ -1,0 +1,63 @@
+<!-- Chat Input Area - Fixed on mobile -->
+<div id="chat-input-wrapper" class="flex-none bg-white dark:bg-gray-800 rounded-lg p-2 sm:p-4 mt-2 sm:mt-4 fixed sm:relative bottom-0 left-0 right-0 sm:left-auto sm:right-auto mx-2 sm:mx-0">
+    <form id="chat-form" class="space-y-2">
+        <div id="file-preview-container" class="hidden space-y-2"></div>
+        <div class="flex gap-1 sm:gap-2 mb-2">
+            <button type="button" class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 rounded hover:bg-gray-200 dark:hover:bg-gray-600" onclick="handleComponentRequest('translate')">
+                翻译
+            </button>
+            <button type="button" class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 rounded hover:bg-gray-200 dark:hover:bg-gray-600" onclick="handleComponentRequest('grammar')">
+                语法检查
+            </button>
+            <button type="button" class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 rounded hover:bg-gray-200 dark:hover:bg-gray-600" onclick="handleComponentRequest('speech-fix')">
+                语音纠错
+            </button>
+            <button type="button" class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 rounded hover:bg-gray-200 dark:hover:bg-gray-600" onclick="handleComponentRequest('smart-reply')">
+                智能回复
+            </button>
+        </div>
+        <div class="flex gap-1 sm:gap-2">
+            <label class="file-input-button">
+                <input type="file" 
+                    id="file-input" 
+                    class="hidden" 
+                    accept=".txt,.csv,.json,.pdf,.doc,.docx,.xls,.xlsx,image/*"
+                    multiple>
+                <svg class="w-6 h-6 text-gray-500 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"></path>
+                </svg>
+            </label>
+            <input type="text" 
+                id="message-input" 
+                class="flex-1 p-2 text-base sm:text-sm border rounded-lg dark:bg-gray-700 dark:border-gray-600" 
+                placeholder="Send a message...">
+            <button type="button" 
+                id="voice-button"
+                class="px-3 py-2 mr-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2 transition-colors duration-200 dark:bg-gray-600 dark:text-gray-200 dark:hover:bg-gray-500">
+                <i class="fas fa-microphone"></i>
+            </button>
+            <button type="submit" 
+                id="send-button"
+                class="px-4 sm:px-6 py-2 bg-gradient-to-r from-blue-500 to-blue-600 
+                    text-white rounded-lg hover:from-blue-600 hover:to-blue-700 
+                    transition-all duration-200 transform hover:scale-105 
+                    flex items-center gap-2 shadow-lg hover:shadow-blue-500/50 
+                    disabled:hover:scale-100 text-sm sm:text-base">
+                <svg class="w-4 h-4 transform rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+                </svg>
+            </button>
+            <button type="button" 
+                id="stop-button"
+                class="hidden px-4 sm:px-6 py-2 bg-gradient-to-r from-red-500 to-red-600 
+                    text-white rounded-lg hover:from-red-600 hover:to-red-700 
+                    transition-all duration-200 transform hover:scale-105 
+                    flex items-center gap-2 shadow-lg hover:shadow-red-500/50"
+                    title="Stop generating">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+    </form>
+</div>

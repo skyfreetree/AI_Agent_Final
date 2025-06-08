@@ -1,0 +1,24 @@
+<!-- wrong_list_container.html -->
+<div id="wrong-list-container" style="display:none;" class="bg-white dark:bg-gray-800 rounded-lg p-4 mb-4 border border-gray-200 dark:border-gray-700">
+    <div class="mb-2 flex flex-wrap gap-2 items-center">
+        <!-- 错题本类型 -->
+        <label for="error-book-select" class="mr-2">错题本：</label>
+        <select id="error-book-select" class="p-1 rounded border border-gray-300 dark:bg-gray-700 dark:text-gray-100">
+            <option value="writing">写作错题本</option>
+            <option value="listening">听力错题本</option>
+            <option value="scene">情景练习错题本</option>
+            <option value="reading">阅读错题本</option>
+        </select>
+        <div id="dynamic-filters" class="flex flex-wrap gap-2 items-center"></div>
+        <button id="filter-confirm-btn" class="ml-2 px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600">确定</button>
+    </div>
+    
+    <div id="wrong-list-container" style="max-width: 700px; margin: 0 auto;">
+        <div class="flex justify-between items-center mb-2">
+          <button id="prev-error-btn" class="px-3 py-1 bg-gray-200 rounded" disabled>上一题</button>
+          <span id="error-index-info" class="text-sm"></span>
+          <button id="next-error-btn" class="px-3 py-1 bg-gray-200 rounded" disabled>下一题</button>
+        </div>
+        <div id="error-detail-container"></div>
+      </div>
+</div> 

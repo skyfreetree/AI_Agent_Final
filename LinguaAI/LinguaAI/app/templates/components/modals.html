@@ -1,0 +1,91 @@
+ <!-- Add Message Edit Modal -->
+    <div id="message-edit-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+        <div class="bg-white dark:bg-gray-800 rounded-lg p-6 w-[80%] max-w-3xl" onclick="event.stopPropagation()">
+            <h3 class="text-lg font-semibold mb-4">Edit Message</h3>
+            <form id="message-edit-form" class="space-y-4">
+                <input type="hidden" id="edit-message-id">
+                <div>
+                    <label class="block text-sm font-medium mb-1">Message Content</label>
+                    <textarea id="edit-message-content" rows="8"
+                            class="w-full p-2 text-sm border rounded-lg dark:bg-gray-700 dark:border-gray-600"
+                            required></textarea>
+                </div>
+                <div class="flex justify-end gap-2">
+                    <button type="button" onclick="closeEditModal()"
+                            class="px-4 py-2 text-sm bg-gray-200 dark:bg-gray-700 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600">
+                        Cancel
+                    </button>
+                    <button type="submit"
+                            class="px-4 py-2 text-sm bg-blue-500 text-white rounded-lg hover:bg-blue-600">
+                        Save
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- Add Summary Edit Modal -->
+    <div id="summary-edit-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+        <div class="bg-white dark:bg-gray-800 rounded-lg p-6 w-96 max-w-[90%]" onclick="event.stopPropagation()">
+            <h3 class="text-lg font-semibold mb-4">Edit Conversation Summary</h3>
+            <form id="summary-edit-form" class="space-y-4">
+                <input type="hidden" id="edit-summary-conversation-id">
+                <div>
+                    <label class="block text-sm font-medium mb-1">Summary</label>
+                    <textarea id="edit-summary-content" rows="3"
+                            class="w-full p-2 text-sm border rounded-lg dark:bg-gray-700 dark:border-gray-600"
+                            required></textarea>
+                </div>
+                <div class="flex justify-end gap-2">
+                    <button type="button" onclick="closeSummaryModal()"
+                            class="px-4 py-2 text-sm bg-gray-200 dark:bg-gray-700 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600">
+                        Cancel
+                    </button>
+                    <button type="submit"
+                            class="px-4 py-2 text-sm bg-blue-500 text-white rounded-lg hover:bg-blue-600">
+                        Save
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- Delete Confirmation Modal (universal usecase) -->
+    <div id="confirmation-modal"
+        class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50">
+        <div class="bg-white dark:bg-gray-800 rounded-lg p-6 w-96 max-w-[90%]" onclick="event.stopPropagation()">
+            <h3 id="confirmation-title" class="text-lg font-semibold mb-4"></h3>
+            <p id="confirmation-message" class="text-sm text-gray-600 dark:text-gray-300"></p>
+
+            <input type="hidden" id="confirmation-action" value="">
+            <input type="hidden" id="confirmation-id" value="">
+
+            <div class="flex justify-end gap-2 mt-4">
+                <button id="cancel-action" type="button" onclick="closeConfirmationModal()"
+                    class="px-4 py-2 text-sm bg-gray-200 dark:bg-gray-700 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600">
+                    Cancel
+                </button>
+                <button id="confirm-action" class="px-4 py-2 text-sm text-white rounded-lg">
+                    Confirm
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- Add Translate Modal -->
+    <div id="translate-modal" class="hidden fixed z-50">
+        <div class="bg-white dark:bg-gray-800 rounded-lg p-4 w-[80%] max-w-3xl shadow-lg" style="position: fixed;">
+            <div id="translate-result" class="w-full p-2 text-sm border rounded-lg bg-white dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100 min-h-[100px] mb-2">
+                <span class="original-text bg-red-100 dark:bg-red-900/30 line-through px-1 rounded"></span>
+                <span class="translated-text bg-green-100 dark:bg-green-900/30 px-1 rounded ml-2"></span>
+            </div>
+            <div class="flex justify-end gap-2">
+                <button onclick="closeTranslateModal()" 
+                    class="px-3 py-1 text-sm bg-gray-200 dark:bg-gray-700 rounded hover:bg-gray-300 dark:hover:bg-gray-600">
+                    取消
+                </button>
+                <button onclick="acceptTranslation()" 
+                    class="px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600">
+                    接受
+                </button>
+            </div>
+        </div>
+    </div>
+    
